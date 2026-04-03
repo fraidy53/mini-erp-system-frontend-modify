@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "userId": "user01",
+      "userName": "장성욱",
+      "email": "test@test.com",
+      "password": "password123",
+      "role": "USER",
+      "department": "개발팀",
+      "positionName": "사원",
+      "totalAnnualLeave": 11
+    },
+    {
+      "id": "2",
+      "userId": "admin",
+      "userName": "관리자",
+      "email": "admin@test.com",
+      "password": "admin123",
+      "role": "ADMIN",
+      "department": "운영팀",
+      "positionName": "팀장"
+    },
+    {
+      "userId": "qwe123",
+      "userName": "도라에몽",
+      "email": "qwe123@gmail.com",
+      "password": "aaaa1234",
+      "positionName": "사원",
+      "department": "개발팀",
+      "id": "6bkQSvq8eP4",
+      "totalAnnualLeave": 11
+    },
+    {
+      "userId": "abc123",
+      "userName": "장성욱",
+      "email": "jso2961@naver.com",
+      "password": "qwer1234",
+      "positionName": "대리",
+      "department": "ㅇㅇㅇㅇㅇ",
+      "id": "syk5YwXUxJA",
+      "totalAnnualLeave": 15
+    }
+  ],
+  "auth": {
+    "accessToken": "mock-jwt-token-abc-123",
+    "message": "로그인에 성공했습니다."
+  },
+  "leaves": [
+    {
+      "userId": "user01",
+      "userName": "장성욱",
+      "requestDate": "2026-04-01",
+      "leaveType": "HALF_MORNING",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "usedDays": 0.5,
+      "reason": "개인 사유",
+      "status": "APPROVED",
+      "id": "cvGvHRLvwtE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

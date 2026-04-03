@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind v4에서는 여기서 직접 설정을 확장합니다. */
+@theme {
+  --color-primary: #2563eb;
+  --font-sans: "Pretendard", "Inter", system-ui, sans-serif;
+}
+
+/* 아래는 브라우저 기본 스타일 초기화 (시안처럼 깔끔하게 나오게 함) */
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+/* FullCalendar 커스텀 스타일링 */
+.custom-calendar .fc {
+  --fc-border-color: #f8fafc;
+  --fc-today-bg-color: #eff6ff;
+}
+
+.custom-calendar .fc-col-header-cell {
+  padding: 12px 0 !important;
+  background-color: #fcfcfc;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.custom-calendar .fc-daygrid-day-number {
+  font-size: 0.85rem;
+  padding: 8px !important;
+  color: #94a3b8;
+}
+
+.custom-calendar .fc-event {
+  border-radius: 4px !important;
+  padding: 2px 4px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* 페이드 인 애니메이션 */
+.animation-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* CalendarPage.css 또는 index.css에 추가 */
+
+/* 1. 요일 헤더 스타일 (이미지처럼 배경 제거 및 폰트 설정) */
+.fc-col-header-cell {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 10px 0 !important;
+}
+
+.fc-col-header-cell-cushion {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* 2. 일요일(Red) & 토요일(Blue) 날짜 색상 */
+.fc-day-sun .fc-daygrid-day-number { color: #ef4444 !important; } /* 일요일 */
+.fc-day-sat .fc-daygrid-day-number { color: #3b82f6 !important; } /* 토요일 */
+
+/* 3. 이벤트 태그 스타일 (이미지의 둥근 모서리와 폰트 재현) */
+.fc-event {
+  border-radius: 6px !important;
+  padding: 3px 6px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  margin-top: 2px !important;
+  box-shadow: none !important;
+}
+
+/* 4. 캘린더 내부 그리드 선 투명도 조절 */
+.fc-theme-standard td, .fc-theme-standard th {
+  border-color: #f1f5f9 !important;
+}
+
+/* 5. 오늘 날짜 하이라이트 제거 또는 커스텀 */
+.fc-day-today {
+  background-color: #f8fafc !important;
+}
