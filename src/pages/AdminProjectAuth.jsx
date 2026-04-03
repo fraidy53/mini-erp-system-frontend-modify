@@ -13,8 +13,17 @@ const AdminProjectAuth = () => {
     const fetchUsers = async () => {
       setLoadingUsers(true);
       try {
-        const response = await api.get('/users?page=0&size=100&role=USER');
-        setUsers(response.data?.data?.content || []);
+        const [userResponse, teamLeaderResponse] = await Promise.all([
+          api.get('/users?page=0&size=100&role=USER'),
+          api.get('/users?page=0&size=100&role=TEAM_LEADER'),
+        ]);
+
+        const userList = userResponse.data?.data?.content || [];
+        const teamLeaderList = teamLeaderResponse.data?.data?.content || [];
+        const mergedUsers = [...userList, ...teamLeaderList]
+          .filter((user, index, array) => array.findIndex((candidate) => candidate.id === user.id) === index);
+
+        setUsers(mergedUsers);
       } catch (error) {
         console.error('사용자 목록 조회 실패:', error);
       } finally {
